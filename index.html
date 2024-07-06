@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>えijōhō</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="shortcut icon" href="assets/heroLogo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+</head>
+<body>
+  <header>
+    <section class="heroLogoContainer">
+      <h1 class="heroLogo">
+        えijōhō
+      </h1>
+    </section>
+    <form id="searchForm" autocomplete="off">
+      <input type="text" id="movieTitle" placeholder="Enter movie title">
+      <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+  </header>
+  <!--
+
+-->
+
+  <main>
+
+ 
+
+    <section id="movieInfoSection">
+      <div id="movieInfoSectionBackground"></div>
+      <div id="loading" style="display: none;">Loading...</div>
+      <div id="movieInfo"></div>
+    </section>
+
+    <section id="recentMoviesSection">
+      <div id="recentMovies">
+        <h2>Recent Movies<p class="recentScroll"><i class="fa-solid fa-scroll"></i> to see more...</p></h2>
+        <div id="recentMoviesList"></div>
+      </div>
+    </section>
+
+  </main>
+  <div id="autocompleteSuggestions" class="autocomplete-suggestions"></div>
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>

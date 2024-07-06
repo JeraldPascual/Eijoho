@@ -1,0 +1,406 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+:root {
+  --primary-color: #121212;
+  --primary-text: #fff;
+  --secondary-text: #bbb;
+  --accent: #e50914;
+  --highlight-color: #1db954;
+  --button-bg: #282828;
+}
+
+::selection {
+  background: var(--primary-color);
+  color: var(--button-bg);
+}
+
+body {
+   min-height: 100vh;
+   background-color: var(--primary-color);
+   font-family: 'Poppins', sans-serif;
+   overflow-y: hidden;
+   color: var(--primary-text);
+}
+
+header {
+  width: 100%;
+  height: 90px;
+  background-color: var(--button-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border-bottom: 3.5px solid var(--highlight-color);
+}
+
+h1.heroLogo {
+  border-left: 5px solid var(--accent);
+  font-weight: 900;
+  color: var(--primary-text);
+  padding: .400rem;
+  cursor: pointer;
+  font-size: 1.8rem;
+  opacity: 1;
+}
+
+
+#searchForm {
+  position: relative;
+  padding: .200rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#searchForm input {
+  width: 12rem;
+  padding: .770rem;
+  border-radius: 1.8rem;
+  border: none;
+  outline: none;
+  background-color: var(--primary-color);
+  color: var(--primary-text);
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+#searchForm input::placeholder {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: .02rem;
+
+}
+
+
+
+#searchForm button {
+  position: absolute;
+  right: 6%;
+  top: 24%;
+  background: none;
+  color: var(--secondary-text);
+  border: none;
+  outline: none;
+  padding: .350rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+#searchForm button:hover {
+  background-color: var(--accent);
+}
+
+
+#autocompleteSuggestions {
+  height: 170px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  position: absolute;
+  width: 760px;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 30%;
+  border-radius: .210rem;
+
+}
+
+.suggestion {
+  padding: 10px;
+  cursor: pointer;
+  text-align: left;
+  background: var(--button-bg);
+  color: var(--primary-text);
+}
+
+.suggestion:hover {
+  background-color: #1e1d1d;
+}
+
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  overflow-y: hidden;
+}
+
+#recentMoviesSection {
+  padding: 2px;
+  flex: 1;
+  border-left: 3.5px solid var(--highlight-color);
+}
+
+#movieInfoSection {
+  flex: 3;
+  flex-wrap: wrap;
+}
+
+#recentMoviesSection {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+
+#recentMoviesSection::-webkit-scrollbar {
+  width: 1em;
+}
+ 
+#recentMoviesSection::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+#recentMoviesSection::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+#recentMovies {
+  padding: .850rem;
+}
+
+#recentMoviesList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+#recentMoviesList div {
+  background: var(--button-bg);
+  padding: .500rem;
+  border-radius: .400rem;
+}
+
+#recentMovies img {
+  max-width: 200px;
+  height: auto;
+}
+
+#movieInfoSection {
+  padding: 2rem;
+   position: relative;
+}
+
+#movieInfoSectionBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(7px);
+  opacity: 0.5;
+  z-index: -1;
+  transition: opacity 0.5s ease;
+}
+
+
+#movieInfoSection img {
+  width: 250px;
+  border-bottom: 3px solid var(--highlight-color);
+}
+
+#movieInfoSection .plot {
+  font-weight: 300;
+}
+#movieInfoSection .title {
+  font-weight: 800;
+  font-size: 3rem;
+  border-bottom: 5px solid  var(--button-bg);
+} 
+#movieInfoSection .released {
+  font-weight: 600;
+}
+
+#movieInfoSection .director {
+  font-weight: 600;
+}
+
+
+#loading {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+}
+
+#movieInfoContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+#movieInformation {
+  display: flex;
+  flex-direction: column;
+  gap: .500rem;
+}
+
+#movieInfoSectionBackground {
+  opacity: 0.5;
+}
+
+.recentScroll {
+  display: none;
+}
+
+
+
+@media screen and (max-width: 800px) {
+  body {
+    overflow-y: scroll;
+    overflow-x: none;
+    scrollbar-width: 0;
+    scrollbar-color: transparent;
+  }
+
+  header {
+    height: 80px;
+    padding: 1.5rem;
+  }
+
+  h1.heroLogo {
+    border-left: 4.8px solid var(--accent);
+    padding: .390rem;
+    font-size: 1.6rem;
+  }
+
+  .recentScroll {
+    display: inline-block;
+    font-weight: 400;
+    margin-left: .700rem;
+    font-size: .800rem;
+  }
+
+
+  #searchForm {
+    padding: .180rem;
+  }
+
+  #searchForm input {
+    width: 11rem;
+    padding: .770rem;
+    border-radius: 1.8rem;
+  }
+
+  #autocompleteSuggestions {
+    height: 170px;
+    width: 330px;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 29%;
+    border-radius: .300rem;
+  }
+
+  .suggestion {
+    padding: 11px;
+  }
+
+  main {
+    height: auto;
+    flex-direction: column;
+  }
+
+  #recentMoviesSection {
+    padding: .200rem;
+    flex-wrap: wrap;
+    border-left: none;
+    border-top: 4px solid var(--highlight-color);
+  }
+
+  #recentMoviesList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: .8rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0.5rem;
+  }
+
+  #recentMoviesList div {
+    width: 100%;
+  }
+
+  #recentMoviesList > h2 {
+    font-size: 2px;
+  }
+
+  .movieCardContainer {
+    padding: 2rem;
+  }
+
+  .movie-details {
+    width: 200px;
+    background-color: transparent;
+  }
+
+  .movie-details h3 {
+    font-size: 21px;
+    width: inherit;
+    background: transparent;
+  }
+
+  #movieInfoSection .plot {
+    font-weight: 400;
+  }
+
+  #movieInfoSection .title {
+    font-weight: 900;
+    font-size: 4.5rem;
+    border-bottom: 5px solid  var(--button-bg);
+  } 
+  
+
+  #recentMovies img {
+    max-width: 170px;
+    height: auto;
+  }
+
+  #movieInfoSection {
+    flex: 1;
+    padding: 1rem;
+  }
+
+  #movieInfoSection img {
+    width: 100%;
+    max-width: 180px;
+    border-bottom: 3px solid var(--highlight-color);
+  }
+
+  #movieInfoSection .title {
+    font-size: 1.8rem;
+  }
+
+  #movieInfoSection .plot {
+    font-size: 0.8rem;
+  }
+
+  #loading {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+  }
+
+  #movieInfoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #movieInformation {
+    display: flex;
+    flex-direction: column;
+    gap: .500rem;
+  }
+}
